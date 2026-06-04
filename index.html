@@ -608,27 +608,41 @@
     });
 
     // submit
-    $('submitBtn').addEventListener('click',()=>{
+    $('submitBtn').addEventListener('click',async ()=>{
       const name=$('f_name'),phone=$('f_phone'),zip=$('f_zip');
       let ok=true;
       [name,phone,zip].forEach(el=>{
         const bad=!el.value.trim(); el.classList.toggle('err',bad); if(bad) ok=false;
       });
-      if(!ok){ $('errmsg').style.display='block'; return; }
+      if(!ok){ $('errmsg').textContent='Please add your name, phone, ZIP and pick a service.'; $('errmsg').style.display='block'; return; }
       $('errmsg').style.display='none';
 
-      // ---- PRODUCTION: send the lead. Drop in a free no-backend handler: ----
-      // const payload={service, name:name.value, phone:phone.value, email:$('f_email').value,
-      //   zip:zip.value, size:$('f_size').value, date:$('f_date').value,
-      //   shed_power:shedPower, notes:$('f_notes').value};
-      // await fetch('https://api.web3forms.com/submit',{method:'POST',
-      //   headers:{'Content-Type':'application/json'},
-      //   body:JSON.stringify({access_key:'YOUR_WEB3FORMS_KEY', subject:'New STALL lead', ...payload})});
-      // (Formspree/Basin work the same way — paste your endpoint and you get each lead by email.)
-
-      $('confirmMsg').textContent='We\u2019ll text '+(name.value.trim().split(' ')[0]||'you')+' at '+phone.value.trim()+' within 1 business day to confirm pricing and lock your date.';
-      $('intakeForm').style.display='none';
-      $('confirmCard').style.display='block';
+      const btn=$('submitBtn'), orig=btn.textContent;
+      btn.disabled=true; btn.textContent='Sending…';
+      try{
+        const res=await fetch('https://api.web3forms.com/submit',{
+          method:'POST',
+          headers:{'Content-Type':'application/json','Accept':'application/json'},
+          body:JSON.stringify({
+            access_key:'d9aad30a-8385-4e04-abb0-af17bfc8709c',
+            subject:'New STALL lead — '+service,
+            from_name:'STALL Website',
+            service,
+            name:name.value, phone:phone.value, email:$('f_email').value,
+            zip:zip.value, size:$('f_size').value, preferred_date:$('f_date').value,
+            shed_power:shedPower, notes:$('f_notes').value
+          })
+        });
+        const data=await res.json();
+        if(!data.success) throw new Error(data.message||'submit failed');
+        $('confirmMsg').textContent='We\u2019ll text '+(name.value.trim().split(' ')[0]||'you')+' at '+phone.value.trim()+' within 1 business day to confirm pricing and lock your date.';
+        $('intakeForm').style.display='none';
+        $('confirmCard').style.display='block';
+      }catch(err){
+        $('errmsg').textContent='Couldn\u2019t send that — call or text (410) 555-0199 and we\u2019ll get you booked.';
+        $('errmsg').style.display='block';
+        btn.disabled=false; btn.textContent=orig;
+      }
     });
 
     $('resetBtn').addEventListener('click',()=>{
