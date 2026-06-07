@@ -266,7 +266,7 @@
           </div>
           <div class="tk-price">
             <div class="amt">$<span>699</span></div>
-            <div class="per">Flat rate<br>1 garage · 1 day</div>
+            <div class="per">2-car detail<br>1 day · priced by size</div>
           </div>
           <ul class="tk-list">
             <li>Full clear-out &amp; sort</li>
@@ -379,14 +379,15 @@
     <div class="svc-grid">
       <div class="scard flag">
         <h3>The Detail</h3>
-        <div class="price">$699<small> / garage</small></div>
-        <div class="desc">Reclaim a standard 1–2 car garage in a single visit.</div>
+        <div class="price">$699<small> / 2-car</small></div>
+        <div class="desc">Flat pricing by garage size — everything in the checklist above, done in one visit.</div>
         <ul>
-          <li>Full clear-out &amp; sort</li>
-          <li>Floor degrease + pressure wash</li>
-          <li>Walls, shelving &amp; rafter dusting</li>
-          <li>One truck load hauled away</li>
-          <li>Zoned re-stage &amp; guarantee</li>
+          <li>1-car — $499</li>
+          <li>2-car — $699 · most popular</li>
+          <li>3-car — $999</li>
+          <li>4-car — $1,299</li>
+          <li>5+ car / estate — from $1,599</li>
+          <li>Packed to the rafters? Quoted on site</li>
         </ul>
         <a href="#book" class="btn acc" data-service="Garage Detail">Book the detail</a>
       </div>
@@ -458,7 +459,9 @@
                 <option value="">Select…</option>
                 <option>1-car garage</option>
                 <option>2-car garage</option>
-                <option>3+ car garage</option>
+                <option>3-car garage</option>
+                <option>4-car garage</option>
+                <option>5+ car / estate garage</option>
                 <option>Shed — small (≤ 120 sq ft)</option>
                 <option>Shed — medium (120–160 sq ft)</option>
                 <option>Shed — large (160–288 sq ft)</option>
@@ -466,6 +469,19 @@
               </select>
             </div>
             <div><label class="flabel">Preferred date</label><input id="f_date" type="date"></div>
+          </div>
+
+          <div class="fgroup">
+            <label class="flabel">Any known pests or animals in the space?</label>
+            <select id="f_pests">
+              <option value="">Select…</option>
+              <option>No / not that I know of</option>
+              <option>Rodents or droppings</option>
+              <option>Wasps, bees, or hornets</option>
+              <option>Snakes</option>
+              <option>Larger wildlife (bats, raccoons, birds, etc.)</option>
+              <option>Not sure</option>
+            </select>
           </div>
 
           <div class="fgroup" id="elecField" style="display:none">
@@ -503,7 +519,9 @@
           <div class="ck">✓</div>
           <h3>Request received.</h3>
           <p id="confirmMsg">We'll text you within 1 business day to confirm pricing and lock your date.</p>
-          <button type="button" class="btn ghost" id="resetBtn">Submit another request</button>
+          <p style="color:var(--ink-soft);font-size:.92rem;margin:-6px auto 22px;max-width:36ch">Want to lock a time right now? Grab a slot that works for you.</p>
+          <a href="https://calendly.com/the-stall" target="_blank" rel="noopener" class="btn acc" style="margin-bottom:14px">Pick a time that works →</a>
+          <div><button type="button" class="btn ghost" id="resetBtn">Submit another request</button></div>
         </div>
       </div>
     </div>
@@ -630,7 +648,7 @@
             service,
             name:name.value, phone:phone.value, email:$('f_email').value,
             zip:zip.value, size:$('f_size').value, preferred_date:$('f_date').value,
-            shed_power:shedPower, notes:$('f_notes').value
+            shed_power:shedPower, pests:$('f_pests').value, notes:$('f_notes').value
           })
         });
         const data=await res.json();
@@ -647,7 +665,7 @@
 
     $('resetBtn').addEventListener('click',()=>{
       ['f_name','f_phone','f_email','f_zip','f_notes'].forEach(id=>$(id).value='');
-      $('f_size').value=''; $('f_date').value=''; thumbs.innerHTML=''; input.value='';
+      $('f_size').value=''; $('f_date').value=''; $('f_pests').value=''; thumbs.innerHTML=''; input.value='';
       elecSeg.querySelectorAll('button').forEach(x=>x.classList.remove('on'));
       shedPower=''; $('elecNote').style.display='none';
       $('confirmCard').style.display='none'; $('intakeForm').style.display='block';
