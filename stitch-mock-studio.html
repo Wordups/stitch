@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>STITCH | Digital Mock Studio</title>
+  <meta name="description" content="Explore the approved STITCH garment branding system in an interactive digital mock studio.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="STITCH">
+  <meta property="og:url" content="https://wordups.github.io/stitch/stitch-mock-studio.html">
+  <meta property="og:title" content="STITCH | Digital Mock Studio">
+  <meta property="og:description" content="Preview garment colors and approved branding placements before the sample run.">
+  <meta property="og:image" content="https://wordups.github.io/stitch/assets/stitch-social-card-v1.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="STITCH | Digital Mock Studio">
+  <meta name="twitter:description" content="Preview garment colors and approved branding placements before the sample run.">
+  <meta name="twitter:image" content="https://wordups.github.io/stitch/assets/stitch-social-card-v1.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#11100e;--ink-2:#1a1814;--panel:#232019;--panel-2:#2a261f;--paper:#ebe3d5;--muted:#a79d8d;--line:rgba(235,227,213,.17);--accent:#d0c2a9;--accent-ink:#1b1812;--studio:#0b0a08}
+    *{box-sizing:border-box}html{background:var(--studio)}body{min-width:320px;margin:0;background:radial-gradient(circle at 50% 0,#272118 0,var(--studio) 44%);color:var(--paper);font:15px/1.45 Inter,system-ui,sans-serif}button{font:inherit}button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--paper);outline-offset:3px}a{color:inherit;text-decoration:none}
+    .shell{max-width:1160px;margin:0 auto;padding:0 22px 48px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:82px;border-bottom:1px solid var(--line)}.wordmark{font:900 21px Archivo,sans-serif;letter-spacing:.15em;line-height:1}.wordmark i{display:inline-block;width:6px;height:22px;margin:0 3px;vertical-align:middle;background:repeating-linear-gradient(to bottom,var(--paper) 0 4px,transparent 4px 7px)}.back-link{color:var(--muted);font:800 10px Archivo,sans-serif;letter-spacing:.12em;text-transform:uppercase}.back-link:hover{color:var(--paper)}
+    .intro{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:end;padding:46px 0 31px}.eyebrow{color:var(--muted);font:800 10px Archivo,sans-serif;letter-spacing:.22em;text-transform:uppercase}.intro h1{max-width:720px;margin:9px 0 0;font:900 clamp(34px,6vw,68px)/.92 Archivo,sans-serif;letter-spacing:.03em;text-transform:uppercase}.intro p{max-width:370px;margin:0;color:var(--muted);font-size:13px}.status{display:inline-flex;align-items:center;gap:8px;margin-top:17px;color:var(--muted);font:800 10px Archivo,sans-serif;letter-spacing:.12em;text-transform:uppercase}.status:before{width:7px;height:7px;border-radius:50%;background:#c5d0ad;content:""}
+    .studio{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(290px,.65fr);gap:16px;align-items:start}.stage-panel,.control-panel{border:1px solid var(--line);background:rgba(25,23,19,.84)}.stage-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:17px 18px 14px;border-bottom:1px solid var(--line)}.stage-head b,.control-title{font:800 12px Archivo,sans-serif;letter-spacing:.12em;text-transform:uppercase}.stage-head span{color:var(--muted);font-size:11px}
+    .stage{position:relative;display:grid;min-height:540px;overflow:hidden;place-items:center;isolation:isolate;perspective:900px;touch-action:pan-y;cursor:grab;background:radial-gradient(circle at 50% 44%,rgba(236,226,207,.15),transparent 40%),linear-gradient(140deg,#181611,#0f0e0c)}.stage:before{position:absolute;z-index:-2;inset:0;background-image:linear-gradient(rgba(235,227,213,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(235,227,213,.045) 1px,transparent 1px);background-size:34px 34px;content:""}.stage:after{position:absolute;z-index:-1;bottom:-60px;width:72%;height:160px;border-radius:50%;background:rgba(0,0,0,.55);filter:blur(24px);content:""}.stage.dragging{cursor:grabbing}.orbit{position:relative;width:min(76%,425px);aspect-ratio:1;transform-style:preserve-3d;transition:transform .22s ease;will-change:transform}.stage.dragging .orbit{transition:none}.garment{position:absolute;inset:0;transform:translateZ(14px)}.garment img{display:block;width:100%;height:100%;object-fit:contain;filter:var(--garment-filter,none);transition:filter .25s ease}.garment:after{position:absolute;inset:0;background:linear-gradient(110deg,rgba(255,255,255,.18),transparent 31%,transparent 67%,rgba(0,0,0,.22));mix-blend-mode:soft-light;pointer-events:none;content:""}.brand-mark{position:absolute;z-index:2;color:var(--mark-color,#e8e0d1);font:900 clamp(10px,1.5vw,15px) Archivo,sans-serif;letter-spacing:.24em;line-height:1;text-shadow:0 1px 2px rgba(0,0,0,.45);pointer-events:none}.brand-mark.hem{right:18%;bottom:18%}.brand-mark.waistband{top:17%;left:50%;transform:translateX(-50%)}.brand-mark[hidden]{display:none}.stage-note{position:absolute;right:17px;bottom:16px;max-width:170px;color:rgba(235,227,213,.55);font-size:10px;text-align:right;pointer-events:none}.studio-orbit-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 18px;border-top:1px solid var(--line)}.orbit-tip{color:var(--muted);font-size:11px}.reset{border:1px solid var(--line);background:transparent;color:var(--paper);padding:8px 10px;font:800 9px Archivo,sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}.reset:hover{border-color:var(--paper)}
+    .control-panel{padding:20px}.control-title{margin:0}.control-copy{margin:7px 0 20px;color:var(--muted);font-size:12px}.control-block{padding:17px 0;border-top:1px solid var(--line)}.control-block:first-of-type{border-top:0;padding-top:0}.control-label{display:block;margin-bottom:10px;color:var(--muted);font:800 9px Archivo,sans-serif;letter-spacing:.15em;text-transform:uppercase}.product-picks{display:grid;gap:7px}.product-pick{display:grid;grid-template-columns:52px 1fr auto;gap:10px;align-items:center;width:100%;padding:7px;border:1px solid var(--line);background:var(--panel);color:var(--paper);text-align:left;cursor:pointer}.product-pick[aria-pressed="true"]{border-color:var(--paper);background:#302d27}.product-pick img{width:52px;height:48px;object-fit:cover;filter:saturate(.78)}.product-pick b{font:800 11px Archivo,sans-serif;letter-spacing:.05em;text-transform:uppercase}.product-pick span{color:var(--muted);font-size:10px}.pick-index{color:var(--muted);font:800 10px Archivo,sans-serif}
+    .color-picks{display:flex;flex-wrap:wrap;gap:8px}.color-pick{display:flex;align-items:center;gap:7px;border:1px solid var(--line);background:transparent;color:var(--paper);padding:8px 9px;font:700 10px Archivo,sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}.color-pick[aria-pressed="true"]{border-color:var(--paper);background:#302d27}.swatch{width:11px;height:11px;border-radius:50%;background:var(--swatch);box-shadow:0 0 0 1px rgba(255,255,255,.16)}
+    .spec-card{padding:14px;background:linear-gradient(135deg,#ded3c1,#bfb096);color:var(--accent-ink)}.spec-kicker{font:800 9px Archivo,sans-serif;letter-spacing:.15em;text-transform:uppercase}.spec-card strong{display:block;margin-top:8px;font:800 18px/1.03 Archivo,sans-serif;letter-spacing:.02em;text-transform:uppercase}.spec-card p{margin:7px 0 0;font-size:12px}.spec-list{display:grid;gap:9px;margin:17px 0 0;padding:0;list-style:none}.spec-list li{display:grid;grid-template-columns:78px 1fr;gap:10px;align-items:start}.spec-list span{color:var(--muted);font:800 9px Archivo,sans-serif;letter-spacing:.13em;text-transform:uppercase}.spec-list b{font:700 11px/1.3 Archivo,sans-serif;letter-spacing:.035em;text-transform:uppercase}.rotation-controls{display:grid;gap:11px}.range-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}.range-row label{color:var(--muted);font-size:11px}.range-row output{font:800 10px Archivo,sans-serif;letter-spacing:.08em}.range-row input{grid-column:1/-1;width:100%;accent-color:var(--paper)}
+    .bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}.rule-card{padding:22px;border:1px solid var(--line);background:rgba(25,23,19,.84)}.rule-card h2{margin:0;font:800 14px Archivo,sans-serif;letter-spacing:.1em;text-transform:uppercase}.rule-card p{margin:8px 0 0;color:var(--muted);font-size:12px}.rule-list{display:grid;gap:8px;margin:18px 0 0;padding:0;list-style:none}.rule-list li{display:flex;gap:9px;align-items:flex-start;color:var(--muted);font-size:12px}.rule-list li:before{width:6px;height:6px;flex:0 0 6px;margin-top:6px;border-radius:50%;background:var(--paper);content:""}.rule-list b{color:var(--paper)}.ready-card{display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(130deg,#2b271f,#191714)}.ready-card .button{display:inline-flex;align-items:center;justify-content:center;margin-top:22px;border:1px solid var(--paper);background:var(--paper);color:var(--ink);padding:13px 15px;font:800 10px Archivo,sans-serif;letter-spacing:.12em;text-transform:uppercase}.ready-card .button:hover{opacity:.9}
+    @media (max-width:760px){.shell{padding:0 14px 30px}.topbar{min-height:68px}.intro{grid-template-columns:1fr;padding:31px 0 22px}.intro p{max-width:100%}.studio{grid-template-columns:1fr}.stage{min-height:min(122vw,510px)}.stage-panel{order:0}.control-panel{order:1}.bottom-grid{grid-template-columns:1fr}.stage-head{padding:14px}.studio-orbit-controls{padding:12px 14px}.stage-note{right:13px;bottom:13px}.control-panel{padding:17px}.orbit{width:min(83%,390px)}}
+    @media (prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition-duration:1ms!important;animation-duration:1ms!important}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="wordmark" href="stitch-six-loop-prototype.html" aria-label="STITCH pack flow">ST<i aria-hidden="true"></i>TCH</a>
+      <a class="back-link" href="stitch-six-loop-prototype.html">Back to pack</a>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="studio-title">
+        <div>
+          <div class="eyebrow">Digital product development</div>
+          <h1 id="studio-title">Mock the details before the sample run.</h1>
+          <div class="status">Placement system ready to review</div>
+        </div>
+        <p>Choose a garment, study its color direction, and inspect the approved STITCH branding system. Drag the garment to change the studio angle.</p>
+      </section>
+
+      <section class="studio" aria-label="STITCH interactive mock studio">
+        <section class="stage-panel" aria-labelledby="stage-title">
+          <div class="stage-head"><b id="stage-title">Live garment study</b><span id="stageProduct">Oversized heavyweight tee</span></div>
+          <div class="stage" id="stage" role="img" aria-live="polite" aria-label="Interactive digital garment mockup">
+            <div class="orbit" id="orbit">
+              <div class="garment">
+                <img id="garmentImage" src="assets/stitch-five-tee-v1.webp" alt="">
+                <span class="brand-mark hem" id="brandMark" aria-hidden="true">STITCH</span>
+              </div>
+            </div>
+            <span class="stage-note">Drag to orbit the garment. The placement stays attached to the product.</span>
+          </div>
+          <div class="studio-orbit-controls"><span class="orbit-tip">A visual placement study, not final production art.</span><button class="reset" id="resetOrbit" type="button">Reset view</button></div>
+        </section>
+
+        <aside class="control-panel" aria-labelledby="controls-title">
+          <h2 class="control-title" id="controls-title">Studio controls</h2>
+          <p class="control-copy">The placement rules are locked by garment. Color is a quick digital direction only.</p>
+
+          <div class="control-block">
+            <span class="control-label">Garment</span>
+            <div class="product-picks" role="group" aria-label="Choose garment">
+              <button class="product-pick" type="button" data-product="tee" aria-pressed="true"><img src="assets/stitch-five-tee-v2.webp" alt=""><span><b>Oversized tee</b><br>Lower-hem wordmark</span><i class="pick-index" aria-hidden="true">01</i></button>
+              <button class="product-pick" type="button" data-product="boxers" aria-pressed="false"><img src="assets/stitch-five-boxers-v2.webp" alt=""><span><b>Boxer briefs</b><br>Centered waistband mark</span><i class="pick-index" aria-hidden="true">02</i></button>
+              <button class="product-pick" type="button" data-product="hoodie" aria-pressed="false"><img src="assets/stitch-five-light-hoodie-v1.webp" alt=""><span><b>Light hoodie</b><br>Cuff-only I</span><i class="pick-index" aria-hidden="true">03</i></button>
+            </div>
+          </div>
+
+          <div class="control-block">
+            <span class="control-label">Color direction</span>
+            <div class="color-picks" id="colorPicks" role="group" aria-label="Choose color direction"></div>
+          </div>
+
+          <div class="control-block">
+            <span class="control-label">Approved placement</span>
+            <div class="spec-card" aria-live="polite">
+              <span class="spec-kicker" id="specKicker">Tee system</span>
+              <strong id="placementTitle">Wearer-left lower hem</strong>
+              <p id="placementCopy">Full STITCH wordmark, kept small and below the visual center.</p>
+            </div>
+            <ul class="spec-list" id="specList"></ul>
+          </div>
+
+          <div class="control-block">
+            <span class="control-label">Manual orbit</span>
+            <div class="rotation-controls">
+              <div class="range-row"><label for="orbitHorizontal">Horizontal</label><output id="orbitHorizontalValue">0&deg;</output><input id="orbitHorizontal" type="range" min="-25" max="25" value="0" step="1"></div>
+              <div class="range-row"><label for="orbitVertical">Vertical</label><output id="orbitVerticalValue">0&deg;</output><input id="orbitVertical" type="range" min="-12" max="12" value="0" step="1"></div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="bottom-grid" aria-label="STITCH mock studio rules">
+        <article class="rule-card">
+          <h2>Placement system</h2>
+          <p>The product carries the brand. The brand does not take over the product.</p>
+          <ul class="rule-list">
+            <li><span><b>Tees:</b> full wordmark only at the wearer-left lower hem.</span></li>
+            <li><span><b>Boxer briefs:</b> full wordmark only at center-front waistband.</span></li>
+            <li><span><b>Light hoodie:</b> standalone I only on the outer sleeve cuff.</span></li>
+            <li><span><b>Neck label:</b> durable back-neck print, not a sewn tag.</span></li>
+          </ul>
+        </article>
+        <article class="rule-card ready-card">
+          <div><h2>Sample-ready direction</h2><p>This is the visual system to hand to a supplier when confirming placements, print method, and sample photos.</p></div>
+          <a class="button" href="stitch-six-loop-prototype.html">Build a five-piece pack</a>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const products = {
+      tee: {
+        name: "Oversized heavyweight tee",
+        image: "assets/stitch-five-tee-v1.webp",
+        mark: "STITCH",
+        markClass: "hem",
+        specKicker: "Tee system",
+        placement: "Wearer-left lower hem",
+        placementCopy: "Full STITCH wordmark, kept small and below the visual center.",
+        details: [["Mark", "Full STITCH wordmark"], ["Location", "Wearer-left lower hem"], ["Neck", "Tagless back-neck print"], ["Rule", "No standalone I"]],
+        colors: [
+          { name: "Charcoal", swatch: "#272729", filter: "none" },
+          { name: "Washed black", swatch: "#151515", filter: "grayscale(.82) brightness(.72) contrast(1.05)" },
+          { name: "Stone", swatch: "#b7afa3", filter: "grayscale(.42) brightness(1.28) contrast(.86)" }
+        ]
+      },
+      boxers: {
+        name: "Boxer briefs",
+        image: "assets/stitch-five-boxers-v1.webp",
+        mark: "STITCH",
+        markClass: "waistband",
+        specKicker: "Boxer system",
+        placement: "Center-front waistband",
+        placementCopy: "Full STITCH wordmark centered on the waistband, with no extra front graphic.",
+        details: [["Mark", "Full STITCH wordmark"], ["Location", "Center-front waistband"], ["Treatment", "Integrated woven or print finish"], ["Rule", "No standalone I"]],
+        colors: [
+          { name: "Taupe", swatch: "#8c7b6b", filter: "none" },
+          { name: "Black", swatch: "#181817", filter: "grayscale(1) brightness(.54) contrast(1.08)" },
+          { name: "Navy", swatch: "#2b3547", filter: "sepia(.32) hue-rotate(174deg) saturate(.72) brightness(.75)" }
+        ]
+      },
+      hoodie: {
+        name: "Light hoodie",
+        image: "assets/stitch-five-light-hoodie-v1.webp",
+        mark: "",
+        markClass: "",
+        specKicker: "Light hoodie system",
+        placement: "Outer sleeve cuff",
+        placementCopy: "The small standalone I is reserved for the cuff. There is no chest wordmark.",
+        details: [["Mark", "Standalone I only"], ["Location", "Outer sleeve cuff"], ["Chest", "No wordmark"], ["Rule", "Keep the cuff treatment small"]],
+        colors: [
+          { name: "Stone", swatch: "#c8c4bb", filter: "none" },
+          { name: "Black", swatch: "#181817", filter: "grayscale(1) brightness(.45) contrast(1.12)" },
+          { name: "Oat", swatch: "#c7b79c", filter: "sepia(.2) saturate(.72) brightness(1.08)" }
+        ]
+      }
+    };
+
+    const stage = document.getElementById("stage");
+    const orbit = document.getElementById("orbit");
+    const garmentImage = document.getElementById("garmentImage");
+    const brandMark = document.getElementById("brandMark");
+    const stageProduct = document.getElementById("stageProduct");
+    const colorPicks = document.getElementById("colorPicks");
+    const specKicker = document.getElementById("specKicker");
+    const placementTitle = document.getElementById("placementTitle");
+    const placementCopy = document.getElementById("placementCopy");
+    const specList = document.getElementById("specList");
+    const orbitHorizontal = document.getElementById("orbitHorizontal");
+    const orbitVertical = document.getElementById("orbitVertical");
+    const orbitHorizontalValue = document.getElementById("orbitHorizontalValue");
+    const orbitVerticalValue = document.getElementById("orbitVerticalValue");
+    const resetOrbit = document.getElementById("resetOrbit");
+    let activeProduct = "tee";
+    let activeColorIndex = 0;
+    let orbitY = 0;
+    let orbitX = 0;
+    let dragging = false;
+    let pointerStart = { x: 0, y: 0, orbitX: 0, orbitY: 0 };
+
+    function clamp(value, min, max) { return Math.min(max, Math.max(min, value)); }
+    function updateOrbit() {
+      orbit.style.transform = "rotateX(" + orbitX + "deg) rotateY(" + orbitY + "deg)";
+      orbitHorizontal.value = orbitY;
+      orbitVertical.value = orbitX;
+      orbitHorizontalValue.value = orbitY + "\u00B0";
+      orbitVerticalValue.value = orbitX + "\u00B0";
+    }
+    function renderColors(product) {
+      colorPicks.innerHTML = product.colors.map((color, index) => '<button class="color-pick" type="button" data-color-index="' + index + '" aria-pressed="' + String(index === activeColorIndex) + '" style="--swatch:' + color.swatch + '"><span class="swatch" aria-hidden="true"></span>' + color.name + '</button>').join("");
+      colorPicks.querySelectorAll(".color-pick").forEach((button) => {
+        button.addEventListener("click", () => {
+          activeColorIndex = Number(button.dataset.colorIndex);
+          renderStudio();
+        });
+      });
+    }
+    function renderStudio() {
+      const product = products[activeProduct];
+      const color = product.colors[activeColorIndex];
+      garmentImage.src = product.image;
+      garmentImage.style.setProperty("--garment-filter", color.filter);
+      garmentImage.style.filter = color.filter;
+      brandMark.textContent = product.mark;
+      brandMark.className = "brand-mark " + product.markClass;
+      brandMark.hidden = !product.mark;
+      stageProduct.textContent = product.name + " / " + color.name;
+      stage.setAttribute("aria-label", product.name + " digital mockup in " + color.name + ". Branding placement: " + product.placement + ".");
+      specKicker.textContent = product.specKicker;
+      placementTitle.textContent = product.placement;
+      placementCopy.textContent = product.placementCopy;
+      specList.innerHTML = product.details.map((detail) => "<li><span>" + detail[0] + "</span><b>" + detail[1] + "</b></li>").join("");
+      document.querySelectorAll(".product-pick").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.product === activeProduct)));
+      renderColors(product);
+      updateOrbit();
+    }
+    document.querySelectorAll(".product-pick").forEach((button) => {
+      button.addEventListener("click", () => {
+        activeProduct = button.dataset.product;
+        activeColorIndex = 0;
+        renderStudio();
+      });
+    });
+    orbitHorizontal.addEventListener("input", () => { orbitY = Number(orbitHorizontal.value); updateOrbit(); });
+    orbitVertical.addEventListener("input", () => { orbitX = Number(orbitVertical.value); updateOrbit(); });
+    resetOrbit.addEventListener("click", () => { orbitX = 0; orbitY = 0; updateOrbit(); });
+    stage.addEventListener("pointerdown", (event) => {
+      dragging = true;
+      pointerStart = { x: event.clientX, y: event.clientY, orbitX, orbitY };
+      stage.classList.add("dragging");
+      stage.setPointerCapture(event.pointerId);
+    });
+    stage.addEventListener("pointermove", (event) => {
+      if (!dragging) return;
+      orbitY = clamp(pointerStart.orbitY + (event.clientX - pointerStart.x) / 5, -25, 25);
+      orbitX = clamp(pointerStart.orbitX - (event.clientY - pointerStart.y) / 8, -12, 12);
+      updateOrbit();
+    });
+    function endDrag(event) {
+      if (!dragging) return;
+      dragging = false;
+      stage.classList.remove("dragging");
+      if (stage.hasPointerCapture(event.pointerId)) stage.releasePointerCapture(event.pointerId);
+    }
+    stage.addEventListener("pointerup", endDrag);
+    stage.addEventListener("pointercancel", endDrag);
+    renderStudio();
+  </script>
+</body>
+</html>
