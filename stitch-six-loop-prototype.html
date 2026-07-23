@@ -3,32 +3,258 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>STITCH: Your Essentials, Handled</title>
-  <meta name="description" content="STITCH mobile app prototype: a preference-led essentials refill service.">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>STITCH | Build your first pack</title>
+  <meta name="description" content="Build a five-piece STITCH pack around the essentials you wear on repeat.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    :root{--ink:#0b0b0c;--ink2:#161619;--panel:#1d1d20;--paper:#f5f4f2;--muted:#aaa7a1;--line:rgba(245,244,242,.15);--accent:#e5dfd5}*{box-sizing:border-box}body{margin:0;background:#090909;color:var(--paper);font:15px/1.4 Inter,system-ui,sans-serif}.app{max-width:470px;min-height:100vh;margin:auto;background:var(--ink);padding-bottom:100px}.top{position:sticky;top:0;z-index:3;display:flex;align-items:center;justify-content:space-between;padding:21px 21px 17px;background:rgba(11,11,12,.96);border-bottom:1px solid var(--line)}.word{font:900 21px Archivo,sans-serif;letter-spacing:.15em}.word i{display:inline-block;width:6px;height:22px;margin:0 3px;vertical-align:middle;background:repeating-linear-gradient(to bottom,var(--paper) 0 4px,transparent 4px 7px)}.icon{width:38px;height:38px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:var(--muted);font-size:18px}.promo{padding:11px 20px;background:var(--accent);color:var(--ink);font:800 11px Archivo,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-align:center}.screen{display:none;padding:26px 21px}.screen.active{display:block}.eyebrow{font:800 10px Archivo,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}h1,h2,h3{font-family:Archivo,sans-serif;text-transform:uppercase;letter-spacing:.05em;margin:0}h1{font-size:42px;line-height:.98;margin:10px 0 14px}h2{font-size:25px;line-height:1.05;margin:7px 0 12px}h3{font-size:14px}.copy{color:var(--muted);margin:0}.button{display:block;border:0;width:100%;padding:16px;background:var(--paper);color:var(--ink);font:800 12px Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;cursor:pointer}.button.dark{background:var(--ink);color:var(--paper);border:1px solid var(--paper)}.hero{padding:34px 0 28px;border-bottom:1px dashed var(--line)}.hero .button{margin-top:25px}.card{background:var(--panel);border:1px solid var(--line);padding:18px;margin-top:14px}.card p{color:var(--muted);font-size:13px;margin:7px 0 0}.next{margin-top:25px}.next .date{font:800 11px Archivo,sans-serif;letter-spacing:.15em;color:var(--muted);text-transform:uppercase}.item{display:flex;gap:13px;align-items:center;padding:14px 0;border-bottom:1px dashed var(--line)}.item:last-child{border:0}.swatch{width:45px;height:45px;background:linear-gradient(135deg,#e6e2da,#77736d);border-radius:5px;flex:none}.item b{font:800 13px Archivo,sans-serif;letter-spacing:.04em;text-transform:uppercase}.item small{display:block;color:var(--muted);margin-top:2px}.right{margin-left:auto;font-size:12px;color:var(--muted)}.section-title{margin-top:12px}.queue-card{background:var(--panel);padding:16px;border:1px solid var(--line);margin-top:18px}.month{display:flex;justify-content:space-between;color:var(--muted);font:800 11px Archivo,sans-serif;letter-spacing:.12em;text-transform:uppercase}.empty{margin-top:11px;padding:15px;border:1px dashed var(--line);color:var(--muted);font-size:13px}.add{float:right;border:0;background:var(--paper);color:var(--ink);padding:6px 10px;font:800 10px Archivo,sans-serif;letter-spacing:.1em}.category{display:flex;align-items:center;justify-content:space-between;padding:18px;background:var(--panel);border:1px solid var(--line);margin-top:11px}.category b{font:800 18px Archivo,sans-serif;letter-spacing:.02em}.category span{color:var(--muted);font-size:13px}.category .tile{width:70px;height:53px;background:linear-gradient(135deg,#d9d4ca,#6b6965);margin-left:15px}.product{display:grid;grid-template-columns:84px 1fr;gap:14px;padding:15px 0;border-bottom:1px solid var(--line)}.product .visual{height:98px;background:linear-gradient(135deg,#4b4b4c,#d8d3ca)}.product b{font:800 13px Archivo,sans-serif;letter-spacing:.05em;text-transform:uppercase}.product p{margin:5px 0 12px;color:var(--muted);font-size:12px}.small-btn{border:1px solid var(--paper);background:transparent;color:var(--paper);padding:8px 10px;font:800 10px Archivo,sans-serif;letter-spacing:.1em;text-transform:uppercase}.perk{padding:17px;background:var(--panel);border:1px solid var(--line);margin-top:12px}.perk strong{font:800 15px Archivo,sans-serif;letter-spacing:.04em;text-transform:uppercase}.perks-number{font:900 48px Archivo,sans-serif;margin:6px 0}.drop{margin-top:16px;padding:23px;background:linear-gradient(145deg,#2a2928,#111113);min-height:210px;display:flex;flex-direction:column;justify-content:end}.drop .label{font:800 10px Archivo,sans-serif;letter-spacing:.15em;background:var(--paper);color:var(--ink);width:max-content;padding:5px 7px}.drop h2{font-size:30px;margin-top:10px}.nav{position:fixed;bottom:13px;left:50%;transform:translateX(-50%);z-index:4;display:flex;width:min(440px,calc(100% - 24px));justify-content:space-around;padding:9px 4px;background:rgba(31,31,33,.98);border:1px solid var(--line);border-radius:30px;box-shadow:0 12px 35px #000}.nav button{border:0;background:none;color:var(--muted);font:700 9px Archivo,sans-serif;letter-spacing:.04em;display:grid;gap:3px;place-items:center;min-width:54px}.nav .symbol{font:22px/1 Inter,sans-serif}.nav button.active{color:var(--paper)}.nav button.active .symbol{background:var(--paper);color:var(--ink);border-radius:50%;width:39px;height:39px;display:grid;place-items:center}.hint{margin-top:26px;color:var(--muted);font-size:11px;text-align:center}@media(min-width:700px){body{background:linear-gradient(90deg,#070707, #222 50%,#070707)}.app{box-shadow:0 0 60px #000}}
-    .screen[data-screen="main"] .hero{padding:34px 19px 28px;margin:-26px -21px 0;border-bottom:1px dashed var(--line);background:linear-gradient(90deg,rgba(11,11,12,.96) 0%,rgba(11,11,12,.78) 55%,rgba(11,11,12,.2)),url('assets/stitch-essentials-hero-v1.png') 68% center/cover}
+    :root{--ink:#0b0b0c;--ink-2:#161619;--panel:#1d1d20;--paper:#f5f4f2;--paper-dim:#dedad3;--muted:#aaa7a1;--line:rgba(245,244,242,.15);--accent:#e4ddd2;--accent-ink:#272521;--green:#a9c3a2}
+    *{box-sizing:border-box}html{background:#070707}body{margin:0;background:#070707;color:var(--paper);font:15px/1.45 Inter,system-ui,sans-serif}button{font:inherit}button:focus-visible,a:focus-visible{outline:2px solid var(--paper);outline-offset:3px}
+    .app{position:relative;max-width:480px;min-height:100vh;margin:0 auto;background:var(--ink);overflow:hidden}.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;min-height:72px;padding:18px 21px;background:rgba(11,11,12,.92);backdrop-filter:blur(15px);border-bottom:1px solid var(--line)}
+    .wordmark{font:900 21px Archivo,sans-serif;letter-spacing:.15em;line-height:1;color:var(--paper)}.wordmark i{display:inline-block;width:6px;height:22px;margin:0 3px;vertical-align:middle;background:repeating-linear-gradient(to bottom,var(--paper) 0 4px,transparent 4px 7px)}.top-note{font:800 10px Archivo,sans-serif;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+    .screen{display:none;min-height:calc(100vh - 72px);padding:25px 21px 112px}.screen.active{display:block;animation:screen-in .36s ease both}@keyframes screen-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}.eyebrow{font:800 10px Archivo,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}h1,h2,h3{margin:0;font-family:Archivo,sans-serif;text-transform:uppercase;letter-spacing:.035em}h1{font-size:clamp(40px,11vw,54px);line-height:.94}h2{font-size:27px;line-height:1.02}h3{font-size:13px}.copy{margin:0;color:var(--muted)}
+    .button{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:55px;border:0;background:var(--paper);color:var(--ink);padding:15px 18px;font:800 12px Archivo,sans-serif;letter-spacing:.13em;text-transform:uppercase;cursor:pointer;transition:transform .16s ease,opacity .16s ease}.button:hover{transform:translateY(-2px)}.button:disabled{opacity:.36;cursor:not-allowed;transform:none}.button.ghost{background:transparent;color:var(--paper);border:1px solid var(--line)}.button .arrow{font-size:17px;line-height:0}
+    .stepper{display:flex;align-items:center;gap:8px;margin-bottom:25px}.stepper span{height:4px;flex:1;background:rgba(245,244,242,.16)}.stepper span.complete,.stepper span.current{background:var(--paper)}.stepper-label{margin-bottom:10px;font:800 10px Archivo,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+
+    /* Home */
+    .home-hero{position:relative;isolation:isolate;min-height:510px;margin:-25px -21px 0;padding:37px 21px 30px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(90deg,rgba(11,11,12,.97) 0%,rgba(11,11,12,.8) 53%,rgba(11,11,12,.16)),url('assets/stitch-essentials-hero-v1.png') 61% center/cover}.home-hero:after{content:"";position:absolute;z-index:-1;inset:auto 0 0;height:150px;background:linear-gradient(transparent,var(--ink))}.home-hero h1{max-width:330px;margin:11px 0 14px}.home-hero .copy{max-width:285px;font-size:15px}.home-hero .button{margin-top:25px}
+    .pills{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:24px 0 0}.pill{padding:10px 7px;border:1px solid var(--line);background:rgba(11,11,12,.54);font:800 9px/1.2 Archivo,sans-serif;letter-spacing:.09em;text-transform:uppercase;text-align:center;color:var(--paper-dim)}.home-section{margin-top:32px}.section-label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:13px}.section-label b{font:800 12px Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase}.section-label span{font-size:11px;color:var(--muted)}
+    .drawer{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.drawer-card{min-height:116px;padding:8px 6px;border:1px solid var(--line);background:var(--panel);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}.drawer-card:before{content:"";display:block;width:100%;height:55px;margin-bottom:auto;background:var(--garment);clip-path:polygon(18% 10%,39% 0,50% 10%,61% 0,82% 10%,96% 34%,78% 49%,72% 99%,28% 99%,22% 49%,4% 34%)}.drawer-card:nth-child(2):before{clip-path:polygon(10% 13%,28% 0,50% 11%,72% 0,90% 13%,97% 44%,73% 36%,70% 100%,30% 100%,27% 36%,3% 44%)}.drawer-card:nth-child(3):before{clip-path:polygon(18% 15%,34% 0,50% 14%,66% 0,82% 15%,97% 47%,75% 41%,71% 100%,29% 100%,25% 41%,3% 47%)}.drawer-card:nth-child(4):before{clip-path:polygon(8% 13%,92% 13%,86% 100%,14% 100%)}.drawer-card:nth-child(5):before{clip-path:polygon(18% 12%,82% 12%,88% 68%,73% 100%,27% 100%,12% 68%)}.drawer-card b{font:800 8px/1.15 Archivo,sans-serif;letter-spacing:.055em;text-transform:uppercase}.drawer-card small{display:block;margin-top:3px;font-size:9px;color:var(--muted)}
+    .home-note{padding:18px;border:1px solid var(--line);background:linear-gradient(115deg,#222225,#171719);margin-top:14px}.home-note b{display:block;font:800 14px Archivo,sans-serif;letter-spacing:.05em;text-transform:uppercase}.home-note p{margin:7px 0 0;color:var(--muted);font-size:13px}
+
+    /* Fit */
+    .fit-intro{margin:7px 0 29px}.fit-intro .copy{margin-top:11px}.field{margin-top:27px}.field-label{display:block;margin-bottom:11px;font:800 11px Archivo,sans-serif;letter-spacing:.13em;text-transform:uppercase}.choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.choice-grid.two{grid-template-columns:repeat(2,1fr)}.choice{min-height:56px;padding:10px 7px;border:1px solid var(--line);background:var(--panel);color:var(--paper);font:800 11px Archivo,sans-serif;letter-spacing:.07em;text-transform:uppercase;cursor:pointer;transition:background .17s ease,color .17s ease,border-color .17s ease}.choice.selected{border-color:var(--paper);background:var(--paper);color:var(--ink)}.choice small{display:block;margin-top:4px;font:400 10px Inter,sans-serif;letter-spacing:0;text-transform:none}.fit-summary{display:flex;gap:11px;margin-top:30px;padding:14px 15px;border:1px dashed var(--line);color:var(--muted);font-size:12px}.fit-summary strong{color:var(--paper)}
+    .flow-actions{position:fixed;bottom:0;left:50%;z-index:15;display:grid;grid-template-columns:1fr 2.2fr;gap:8px;width:min(480px,100%);padding:13px 21px 20px;background:linear-gradient(transparent,var(--ink) 28%)}
+
+    /* Builder */
+    .build-head{margin:7px 0 21px}.build-head .copy{margin-top:10px}.slot-card{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px;border:1px solid var(--line);background:#141416;margin:19px 0 14px}.slot-card strong{font:900 26px Archivo,sans-serif;letter-spacing:.03em}.slot-card p{margin:3px 0 0;color:var(--muted);font-size:12px}.slot-dots{display:flex;gap:5px}.slot-dot{width:12px;height:12px;border:1px solid var(--muted);border-radius:50%}.slot-dot.active{background:var(--paper);border-color:var(--paper)}
+    .product-list{display:grid;gap:10px}.product-card{display:grid;grid-template-columns:75px 1fr auto;gap:13px;align-items:center;min-height:102px;padding:12px;border:1px solid var(--line);background:var(--panel);transition:border-color .17s ease,background .17s ease}.product-card.selected{border-color:var(--paper);background:#252527}.product-visual{position:relative;width:75px;height:75px;background:var(--garment);overflow:hidden}.product-visual:after{content:"";position:absolute;inset:11px 13px;background:rgba(255,255,255,.16);clip-path:polygon(18% 10%,39% 0,50% 10%,61% 0,82% 10%,96% 34%,78% 49%,72% 99%,28% 99%,22% 49%,4% 34%)}.product-card[data-product="Crew neck"] .product-visual:after{clip-path:polygon(10% 13%,28% 0,50% 11%,72% 0,90% 13%,97% 44%,73% 36%,70% 100%,30% 100%,27% 36%,3% 44%)}.product-card[data-product="Hoodie"] .product-visual:after{clip-path:polygon(18% 15%,34% 0,50% 14%,66% 0,82% 15%,97% 47%,75% 41%,71% 100%,29% 100%,25% 41%,3% 47%)}.product-card[data-product="Boxers"] .product-visual:after{clip-path:polygon(8% 13%,92% 13%,86% 100%,14% 100%)}.product-card[data-product="Socks"] .product-visual:after{clip-path:polygon(18% 12%,82% 12%,88% 68%,73% 100%,27% 100%,12% 68%)}.product-card h3{font-size:13px}.product-card p{margin:4px 0 0;color:var(--muted);font-size:11px}.quantity{display:flex;align-items:center;border:1px solid var(--line)}.quantity button{display:grid;place-items:center;width:30px;height:32px;border:0;background:transparent;color:var(--paper);font-size:18px;cursor:pointer}.quantity button:disabled{opacity:.24;cursor:not-allowed}.quantity output{display:grid;place-items:center;min-width:24px;font:800 12px Archivo,sans-serif}.helper{margin:15px 0 0;color:var(--muted);font-size:11px;text-align:center}
+
+    /* Cadence */
+    .cadence-head{margin:7px 0 28px}.cadence-head .copy{margin-top:10px}.cadence-option{position:relative;display:block;width:100%;padding:20px 18px;margin-top:10px;border:1px solid var(--line);background:var(--panel);color:var(--paper);text-align:left;cursor:pointer}.cadence-option.selected{border-color:var(--paper);background:#252527}.cadence-option .check{position:absolute;right:17px;top:20px;display:grid;place-items:center;width:21px;height:21px;border:1px solid var(--muted);border-radius:50%;font-size:12px}.cadence-option.selected .check{background:var(--paper);border-color:var(--paper);color:var(--ink)}.cadence-option b{display:block;font:800 15px Archivo,sans-serif;letter-spacing:.05em;text-transform:uppercase}.cadence-option p{margin:5px 26px 0 0;color:var(--muted);font-size:12px}.calm-card{margin-top:27px;padding:18px;background:var(--accent);color:var(--accent-ink)}.calm-card b{font:800 13px Archivo,sans-serif;letter-spacing:.07em;text-transform:uppercase}.calm-card p{margin:6px 0 0;font-size:13px}
+
+    /* Review */
+    .review-hero{padding:26px 20px;background:linear-gradient(135deg,#e9e4db,#bfb8ad);color:var(--ink);margin:-25px -21px 24px}.review-hero .eyebrow{color:#625d57}.review-hero h1{margin:10px 0 11px;font-size:42px}.review-hero p{margin:0;max-width:290px;color:#57514b}.pack-reveal{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:7px;height:151px;margin-top:27px;align-items:end}.pack-piece{height:var(--piece-height);background:var(--piece-color);box-shadow:8px 9px 0 rgba(0,0,0,.09);transform:rotate(var(--piece-rotate));animation:rise .56s both}.pack-piece:nth-child(2){animation-delay:.06s}.pack-piece:nth-child(3){animation-delay:.12s}.pack-piece:nth-child(4){animation-delay:.18s}.pack-piece:nth-child(5){animation-delay:.24s}@keyframes rise{from{opacity:0;transform:translateY(20px) rotate(var(--piece-rotate))}to{opacity:1;transform:translateY(0) rotate(var(--piece-rotate))}}
+    .review-card{padding:18px;border:1px solid var(--line);background:var(--panel);margin-top:13px}.review-card h3{font-size:12px;color:var(--muted)}.selection-list{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}.selection-tag{padding:7px 9px;background:#303034;font:800 10px Archivo,sans-serif;letter-spacing:.07em;text-transform:uppercase}.review-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:15px;border-top:1px dashed var(--line)}.review-grid div{padding-top:13px}.review-grid div+div{padding-left:14px;border-left:1px dashed var(--line)}.review-grid small{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.08em}.review-grid b{display:block;margin-top:4px;font:800 12px Archivo,sans-serif;text-transform:uppercase;letter-spacing:.05em}.checkout-note{margin:17px 0 0;color:var(--muted);font-size:11px;text-align:center}.checkout-note strong{color:var(--paper)}
+
+    /* Handoff */
+    .handoff{display:grid;align-content:center;min-height:calc(100vh - 72px);padding-bottom:90px;text-align:center}.seal{display:grid;place-items:center;width:92px;height:92px;margin:0 auto 24px;border:1px solid var(--paper);border-radius:50%;font:900 30px Archivo,sans-serif;letter-spacing:.08em}.handoff h1{font-size:40px}.handoff .copy{max-width:310px;margin:14px auto 27px}.handoff-status{min-height:20px;margin:14px 0 0;color:var(--green);font-size:12px}.back-link{display:inline-block;margin-top:23px;border:0;background:transparent;color:var(--muted);font:700 11px Archivo,sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+    @media (min-width:700px){body{background:radial-gradient(circle at center,#292929 0,#080808 57%)}.app{box-shadow:0 0 80px rgba(0,0,0,.65)}}@media (prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:1ms!important;transition-duration:1ms!important;scroll-behavior:auto!important}}
   </style>
 </head>
 <body>
   <div class="app">
-    <header class="top"><span class="icon">⌕</span><span class="word">ST<i></i>TCH</span><span class="icon">⌂</span></header>
-    <div class="promo">Build your first refill · save your fit · set your cadence</div>
+    <header class="topbar">
+      <span class="wordmark" aria-label="STITCH">ST<i aria-hidden="true"></i>TCH</span>
+      <span class="top-note" id="topNote">First pack</span>
+    </header>
+
     <main>
-      <section class="screen active" data-screen="main"><div class="hero"><div class="eyebrow">Your essentials dashboard</div><h1>Build your<br>first pack.</h1><p class="copy">Skip the store run. Save your fit, choose your mix, and keep your drawer ready.</p><button class="button" data-go="queue">Build my first pack</button></div><div class="next"><div class="date">Next refill</div><div class="card"><h3>Not scheduled yet</h3><p>Start with a five-piece custom pack. You can swap, skip, or change cadence later.</p></div></div><div class="next"><div class="date">Recommended for you</div><div class="item"><span class="swatch"></span><span><b>Oversized heavyweight tee</b><small>Black · saved in your profile</small></span><span class="right">Add</span></div><div class="item"><span class="swatch"></span><span><b>Crew socks</b><small>White · everyday pair</small></span><span class="right">Add</span></div></div></section>
-      <section class="screen" data-screen="queue"><div class="eyebrow">Your next delivery</div><h2 class="section-title">My Refill Queue</h2><p class="copy">Put the pieces you want next in line. This is your control center.</p><div class="queue-card"><div class="month"><span>Next delivery</span><span>Choose date</span></div><div class="empty">Your refill is empty. Add five items to create a custom pack.<button class="add" data-go="essentials">Add items</button></div></div><div class="queue-card"><div class="month"><span>After that</span><span>Flexible</span></div><div class="empty">Keep your rotation ready or skip whenever you need.</div></div><div class="next"><div class="date">Quick adds</div><div class="item"><span class="swatch"></span><span><b>Black oversized tee</b><small>Your saved size</small></span><span class="right">＋</span></div><div class="item"><span class="swatch"></span><span><b>Boxer brief 3-pack</b><small>Black / gray</small></span><span class="right">＋</span></div></div></section>
-      <section class="screen" data-screen="essentials"><div class="eyebrow">Build your mix</div><h2 class="section-title">Essentials</h2><p class="copy">Start with the things you wear on repeat.</p><div class="category"><div><b>Oversized tees</b><span>Heavyweight / relaxed</span></div><i class="tile"></i></div><div class="category"><div><b>Crew necks</b><span>Classic everyday fit</span></div><i class="tile"></i></div><div class="category"><div><b>Hoodies</b><span>Heavyweight / seasonal</span></div><i class="tile"></i></div><div class="category"><div><b>Boxers + socks</b><span>Drawer reset</span></div><i class="tile"></i></div></section>
-      <section class="screen" data-screen="shop"><div class="eyebrow">One-time extras</div><h2 class="section-title">Shop</h2><p class="copy">Grab a single item or add it to your next refill.</p><article class="product"><div class="visual"></div><div><b>Heavyweight oversized tee</b><p>Choose a color and add it to your rotation when samples and pricing are approved.</p><button class="small-btn">Add to refill</button></div></article><article class="product"><div class="visual"></div><div><b>Heavyweight hoodie</b><p>Seasonal add-on. Not part of the core subscription.</p><button class="small-btn">View drop</button></div></article><article class="product"><div class="visual"></div><div><b>Crew sock 5-pack</b><p>A clean drawer reset in the colors you actually wear.</p><button class="small-btn">Build a pack</button></div></article></section>
-      <section class="screen" data-screen="perks"><div class="eyebrow">The STITCH circle</div><h2 class="section-title">Perks</h2><p class="copy">Rewards are earned through real referrals and repeat support. Never fake urgency.</p><div class="perk"><strong>Your STITCH credit</strong><div class="perks-number">$0</div><p class="copy">Invite someone when the referral program is ready. Credit applies to a future refill.</p></div><div class="perk"><strong>Fit profile</strong><p class="copy">Save preferred cuts, size, colors, and what you never need again.</p><button class="small-btn" style="margin-top:13px">Edit profile</button></div></section>
-      <section class="screen" data-screen="drops"><div class="eyebrow">Reasons to return</div><h2 class="section-title">Drops</h2><p class="copy">New useful combinations, not noise.</p><article class="drop"><span class="label">Coming after core launch</span><h2>Neutral<br>Rotation</h2><p class="copy">A five-piece color refresh built from the core essentials.</p></article><article class="drop"><span class="label">Seasonal</span><h2>Fall<br>Weight</h2><p class="copy">Heavyweight hoodies and darker essentials.</p></article></section>
+      <section class="screen active" data-screen="home" aria-labelledby="home-title">
+        <div class="home-hero">
+          <div class="eyebrow">The essentials, delivered</div>
+          <h1 id="home-title">Build your first pack.</h1>
+          <p class="copy">Skip the store run. Build a better drawer around what you actually wear on repeat.</p>
+          <button class="button" type="button" data-go="fit">Build my pack <span class="arrow" aria-hidden="true">&#8594;</span></button>
+          <div class="pills" aria-label="STITCH benefits">
+            <span class="pill">Save your fit</span><span class="pill">Refill biweekly</span><span class="pill">Your mix</span>
+          </div>
+        </div>
+        <div class="home-section">
+          <div class="section-label"><b>Your five</b><span>Pick what earns drawer space</span></div>
+          <div class="drawer" aria-label="Core STITCH essentials">
+            <article class="drawer-card" style="--garment:#262629"><b>Oversized</b><small>tees</small></article>
+            <article class="drawer-card" style="--garment:#e5dfd5"><b>Crew</b><small>necks</small></article>
+            <article class="drawer-card" style="--garment:#68645e"><b>Heavy</b><small>hoodies</small></article>
+            <article class="drawer-card" style="--garment:#8b877f"><b>Boxer</b><small>briefs</small></article>
+            <article class="drawer-card" style="--garment:#d2cbc0"><b>Crew</b><small>socks</small></article>
+          </div>
+          <div class="home-note"><b>Made for the recurring problem.</b><p>Your best basics disappear one wash at a time. STITCH gives you a simple way to rebuild and keep the rotation moving.</p></div>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="fit" aria-labelledby="fit-title">
+        <div class="stepper" aria-label="Pack-building progress"><span class="current"></span><span></span><span></span></div>
+        <div class="stepper-label">Step 1 of 3</div>
+        <div class="fit-intro"><h2 id="fit-title">Make it feel like yours.</h2><p class="copy">Start with a few preferences. You can change these before checkout.</p></div>
+        <div class="field"><span class="field-label">Most common size</span><div class="choice-grid" data-choice-group="size" role="group" aria-label="Most common size"><button class="choice" type="button" data-value="S">S</button><button class="choice selected" type="button" data-value="M">M</button><button class="choice" type="button" data-value="L">L</button><button class="choice" type="button" data-value="XL">XL</button><button class="choice" type="button" data-value="2XL">2XL</button><button class="choice" type="button" data-value="3XL">3XL</button></div></div>
+        <div class="field"><span class="field-label">Tee preference</span><div class="choice-grid two" data-choice-group="fit" role="group" aria-label="Tee preference"><button class="choice selected" type="button" data-value="Oversized">Oversized<small>Relaxed everyday fit</small></button><button class="choice" type="button" data-value="Classic">Classic<small>Closer everyday fit</small></button></div></div>
+        <div class="field"><span class="field-label">Color direction</span><div class="choice-grid" data-choice-group="color" role="group" aria-label="Color direction"><button class="choice selected" type="button" data-value="Neutrals">Neutrals</button><button class="choice" type="button" data-value="Dark">Dark</button><button class="choice" type="button" data-value="Mixed">Mixed</button></div></div>
+        <div class="fit-summary"><span aria-hidden="true">&#10003;</span><span><strong>Your profile is private to your pack.</strong><br>We only use it to prepare the choices you make.</span></div>
+        <div class="flow-actions"><button class="button ghost" type="button" data-go="home">Back</button><button class="button" type="button" data-go="build">Choose my five <span class="arrow" aria-hidden="true">&#8594;</span></button></div>
+      </section>
+
+      <section class="screen" data-screen="build" aria-labelledby="build-title">
+        <div class="stepper" aria-label="Pack-building progress"><span class="complete"></span><span class="current"></span><span></span></div>
+        <div class="stepper-label">Step 2 of 3</div>
+        <div class="build-head"><h2 id="build-title">Choose your five.</h2><p class="copy">Build a pack around your real week. Use more than one slot for anything you always run out of.</p></div>
+        <div class="slot-card"><div><strong><span id="selectedCount">0</span> / 5</strong><p id="slotCopy">Five open slots.</p></div><div class="slot-dots" id="slotDots" aria-label="Selected pack slots"><i class="slot-dot"></i><i class="slot-dot"></i><i class="slot-dot"></i><i class="slot-dot"></i><i class="slot-dot"></i></div></div>
+        <div class="product-list" aria-live="polite">
+          <article class="product-card" data-product="Oversized heavyweight tee" style="--garment:#2e2e30"><div class="product-visual" aria-hidden="true"></div><div><h3>Oversized heavyweight tee</h3><p>For the one you want within reach.</p></div><div class="quantity" aria-label="Oversized heavyweight tee quantity"><button type="button" data-change="-1" aria-label="Remove oversized heavyweight tee">-</button><output>0</output><button type="button" data-change="1" aria-label="Add oversized heavyweight tee">+</button></div></article>
+          <article class="product-card" data-product="Crew neck" style="--garment:#e1dbd0"><div class="product-visual" aria-hidden="true"></div><div><h3>Crew neck</h3><p>Simple, easy, and ready for repeat wear.</p></div><div class="quantity" aria-label="Crew neck quantity"><button type="button" data-change="-1" aria-label="Remove crew neck">-</button><output>0</output><button type="button" data-change="1" aria-label="Add crew neck">+</button></div></article>
+          <article class="product-card" data-product="Hoodie" style="--garment:#777168"><div class="product-visual" aria-hidden="true"></div><div><h3>Hoodie</h3><p>For the part of the rotation that stays on.</p></div><div class="quantity" aria-label="Hoodie quantity"><button type="button" data-change="-1" aria-label="Remove hoodie">-</button><output>0</output><button type="button" data-change="1" aria-label="Add hoodie">+</button></div></article>
+          <article class="product-card" data-product="Boxers" style="--garment:#a39c92"><div class="product-visual" aria-hidden="true"></div><div><h3>Boxers</h3><p>A straightforward drawer reset.</p></div><div class="quantity" aria-label="Boxers quantity"><button type="button" data-change="-1" aria-label="Remove boxers">-</button><output>0</output><button type="button" data-change="1" aria-label="Add boxers">+</button></div></article>
+          <article class="product-card" data-product="Socks" style="--garment:#d8d0c4"><div class="product-visual" aria-hidden="true"></div><div><h3>Socks</h3><p>The small thing that keeps the week moving.</p></div><div class="quantity" aria-label="Socks quantity"><button type="button" data-change="-1" aria-label="Remove socks">-</button><output>0</output><button type="button" data-change="1" aria-label="Add socks">+</button></div></article>
+        </div>
+        <p class="helper">Your pack becomes a clear starting point, not a surprise box.</p>
+        <div class="flow-actions"><button class="button ghost" type="button" data-go="fit">Back</button><button class="button" id="reviewBuild" type="button" disabled>Review my pack <span class="arrow" aria-hidden="true">&#8594;</span></button></div>
+      </section>
+
+      <section class="screen" data-screen="plan" aria-labelledby="plan-title">
+        <div class="stepper" aria-label="Pack-building progress"><span class="complete"></span><span class="complete"></span><span class="current"></span></div>
+        <div class="stepper-label">Step 3 of 3</div>
+        <div class="cadence-head"><h2 id="plan-title">Keep the store run out of it.</h2><p class="copy">Set the rhythm for your rotation. Biweekly is selected for the first STITCH pack.</p></div>
+        <button class="cadence-option selected" type="button" data-cadence="Every 2 weeks" aria-pressed="true"><span class="check" aria-hidden="true">&#10003;</span><b>Every 2 weeks</b><p>A simple recurring reminder to refresh the essentials you chose.</p></button>
+        <button class="cadence-option" type="button" data-cadence="Decide later" aria-pressed="false"><span class="check" aria-hidden="true"></span><b>Decide later</b><p>Save the pack first and choose your cadence when product details are final.</p></button>
+        <div class="calm-card"><b>Built to stay simple.</b><p>You will see product, price, and delivery details before the Shopify checkout step.</p></div>
+        <div class="flow-actions"><button class="button ghost" type="button" data-go="build">Back</button><button class="button" type="button" data-go="review">See my pack <span class="arrow" aria-hidden="true">&#8594;</span></button></div>
+      </section>
+
+      <section class="screen" data-screen="review" aria-labelledby="review-title">
+        <div class="review-hero"><div class="eyebrow">Your STITCH first pack</div><h1 id="review-title">That is a better drawer.</h1><p>Five choices you actually want to wear, prepared around your fit and color direction.</p><div class="pack-reveal" id="packReveal" aria-label="Your selected pack"></div></div>
+        <div class="review-card"><h3>Your five</h3><div class="selection-list" id="selectionList"></div><div class="review-grid"><div><small>Fit</small><b id="reviewFit">M · Oversized</b></div><div><small>Color</small><b id="reviewColor">Neutrals</b></div></div></div>
+        <div class="review-card"><h3>Refill rhythm</h3><div class="review-grid"><div><small>Cadence</small><b id="reviewCadence">Every 2 weeks</b></div><div><small>Checkout</small><b>Shopify</b></div></div></div>
+        <p class="checkout-note"><strong>Nothing is charged in this prototype.</strong> The live handoff will use your Shopify product and subscription plan.</p>
+        <div class="flow-actions"><button class="button ghost" type="button" data-go="build">Edit pack</button><button class="button" type="button" id="continueCheckout">Continue to Shopify <span class="arrow" aria-hidden="true">&#8594;</span></button></div>
+      </section>
+
+      <section class="screen handoff" data-screen="handoff" aria-labelledby="handoff-title">
+        <div><div class="seal" aria-hidden="true">S</div><div class="eyebrow">STITCH x Shopify</div><h1 id="handoff-title">Your pack is ready.</h1><p class="copy">The next tap will move your selected pack into Shopify for checkout, confirmation, and account management.</p><button class="button" type="button" id="shopifyHandoff">Open secure checkout <span class="arrow" aria-hidden="true">&#8594;</span></button><p class="handoff-status" id="handoffStatus" aria-live="polite"></p><button class="back-link" type="button" data-go="review">Back to my pack</button></div>
+      </section>
     </main>
-    <nav class="nav" aria-label="STITCH sections"><button class="active" data-tab="main"><span class="symbol">⌂</span><span>Main</span></button><button data-tab="queue"><span class="symbol">＋</span><span>My Refill</span></button><button data-tab="essentials"><span class="symbol">◫</span><span>Essentials</span></button><button data-tab="shop"><span class="symbol">⌑</span><span>Shop</span></button><button data-tab="perks"><span class="symbol">♡</span><span>Perks</span></button><button data-tab="drops"><span class="symbol">✦</span><span>Drops</span></button></nav>
   </div>
+
   <script>
-    const show=id=>{document.querySelectorAll('.screen').forEach(x=>x.classList.toggle('active',x.dataset.screen===id));document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x.dataset.tab===id));window.scrollTo({top:0,behavior:'smooth'})};
-    document.querySelectorAll('[data-tab]').forEach(x=>x.addEventListener('click',()=>show(x.dataset.tab)));document.querySelectorAll('[data-go]').forEach(x=>x.addEventListener('click',()=>show(x.dataset.go)));
+    /*
+      Paste the live Shopify cart or checkout URL here once the STITCH First Pack
+      product, price, and biweekly selling plan are approved.
+    */
+    const SHOPIFY_CHECKOUT_URL = "";
+    const MAX_SLOTS = 5;
+    const state = {
+      size: "M",
+      fit: "Oversized",
+      color: "Neutrals",
+      cadence: "Every 2 weeks",
+      products: {
+        "Oversized heavyweight tee": 0,
+        "Crew neck": 0,
+        "Hoodie": 0,
+        "Boxers": 0,
+        "Socks": 0
+      }
+    };
+    const colorMap = {
+      "Oversized heavyweight tee": "#2e2e30",
+      "Crew neck": "#e1dbd0",
+      "Hoodie": "#777168",
+      "Boxers": "#a39c92",
+      "Socks": "#d8d0c4"
+    };
+    const topNote = document.getElementById("topNote");
+    const selectedCount = document.getElementById("selectedCount");
+    const slotCopy = document.getElementById("slotCopy");
+    const slotDots = [...document.querySelectorAll(".slot-dot")];
+    const reviewBuild = document.getElementById("reviewBuild");
+    const selectionList = document.getElementById("selectionList");
+    const packReveal = document.getElementById("packReveal");
+    const reviewFit = document.getElementById("reviewFit");
+    const reviewColor = document.getElementById("reviewColor");
+    const reviewCadence = document.getElementById("reviewCadence");
+    const handoffStatus = document.getElementById("handoffStatus");
+
+    function totalSelected() {
+      return Object.values(state.products).reduce((sum, count) => sum + count, 0);
+    }
+    function setScreen(name) {
+      document.querySelectorAll(".screen").forEach((screen) => {
+        screen.classList.toggle("active", screen.dataset.screen === name);
+      });
+      topNote.textContent = name === "home" ? "First pack" : name === "review" ? "Your pack" : "Build STITCH";
+      if (name === "review") updateReview();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    function updateBuild() {
+      const total = totalSelected();
+      selectedCount.textContent = total;
+      slotCopy.textContent = total === MAX_SLOTS ? "Your first pack is ready." : (MAX_SLOTS - total) + " open " + (MAX_SLOTS - total === 1 ? "slot" : "slots") + " left.";
+      slotDots.forEach((dot, index) => dot.classList.toggle("active", index < total));
+      reviewBuild.disabled = total !== MAX_SLOTS;
+      document.querySelectorAll(".product-card").forEach((card) => {
+        const product = card.dataset.product;
+        const count = state.products[product];
+        const buttons = card.querySelectorAll("[data-change]");
+        card.classList.toggle("selected", count > 0);
+        card.querySelector("output").textContent = count;
+        buttons[0].disabled = count === 0;
+        buttons[1].disabled = total === MAX_SLOTS;
+      });
+    }
+    function updateReview() {
+      const selected = Object.entries(state.products).filter((entry) => entry[1] > 0);
+      selectionList.innerHTML = selected.map((entry) => {
+        const product = entry[0];
+        const count = entry[1];
+        return '<span class="selection-tag">' + count + " " + product + (count > 1 ? "s" : "") + "</span>";
+      }).join("");
+      const pieces = selected.flatMap((entry) => Array(entry[1]).fill(entry[0]));
+      packReveal.innerHTML = Array.from({ length: MAX_SLOTS }, (_, index) => {
+        const product = pieces[index];
+        const color = colorMap[product] || "#a9a39a";
+        const height = 94 + ((index * 13) % 43);
+        const rotate = (index % 2 === 0 ? -3 + index : 3 - index) + "deg";
+        return '<span class="pack-piece" style="--piece-color:' + color + ";--piece-height:" + height + "px;--piece-rotate:" + rotate + '"></span>';
+      }).join("");
+      reviewFit.textContent = state.size + " · " + state.fit;
+      reviewColor.textContent = state.color;
+      reviewCadence.textContent = state.cadence;
+    }
+    document.querySelectorAll("[data-go]").forEach((button) => {
+      button.addEventListener("click", () => setScreen(button.dataset.go));
+    });
+    document.querySelectorAll("[data-choice-group]").forEach((group) => {
+      group.querySelectorAll(".choice").forEach((button) => {
+        button.addEventListener("click", () => {
+          group.querySelectorAll(".choice").forEach((choice) => choice.classList.toggle("selected", choice === button));
+          state[group.dataset.choiceGroup] = button.dataset.value;
+        });
+      });
+    });
+    document.querySelectorAll(".product-card [data-change]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = button.closest(".product-card");
+        const product = card.dataset.product;
+        const change = Number(button.dataset.change);
+        const next = state.products[product] + change;
+        if (next >= 0 && totalSelected() + change <= MAX_SLOTS) {
+          state.products[product] = next;
+          updateBuild();
+        }
+      });
+    });
+    reviewBuild.addEventListener("click", () => {
+      if (totalSelected() === MAX_SLOTS) setScreen("plan");
+    });
+    document.querySelectorAll(".cadence-option").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".cadence-option").forEach((option) => {
+          const active = option === button;
+          option.classList.toggle("selected", active);
+          option.setAttribute("aria-pressed", String(active));
+        });
+        state.cadence = button.dataset.cadence;
+      });
+    });
+    document.getElementById("continueCheckout").addEventListener("click", () => setScreen("handoff"));
+    document.getElementById("shopifyHandoff").addEventListener("click", () => {
+      if (SHOPIFY_CHECKOUT_URL) {
+        window.location.assign(SHOPIFY_CHECKOUT_URL);
+        return;
+      }
+      handoffStatus.textContent = "Your flow is ready. Add the approved Shopify checkout URL when the first pack is priced and live.";
+    });
+    updateBuild();
   </script>
 </body>
 </html>
