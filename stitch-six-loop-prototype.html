@@ -107,30 +107,30 @@
         <div class="cadence-head"><h2 id="plan-title">Keep the store run out of it.</h2><p class="copy">Set the rhythm for your rotation. Biweekly is selected for the first STITCH pack.</p></div>
         <button class="cadence-option selected" type="button" data-cadence="Every 2 weeks" aria-pressed="true"><span class="check" aria-hidden="true">&#10003;</span><b>Every 2 weeks</b><p>A simple recurring reminder to refresh the essentials you chose.</p></button>
         <button class="cadence-option" type="button" data-cadence="Decide later" aria-pressed="false"><span class="check" aria-hidden="true"></span><b>Decide later</b><p>Save the pack first and choose your cadence when product details are final.</p></button>
-        <div class="calm-card"><b>Built to stay simple.</b><p>You will see product, price, and delivery details before the Shopify checkout step.</p></div>
+        <div class="calm-card"><b>Built to stay simple.</b><p>You will see product, price, and delivery details before checkout.</p></div>
         <div class="flow-actions"><button class="button ghost" type="button" data-go="build">Back</button><button class="button" type="button" data-go="review">See my pack <span class="arrow" aria-hidden="true">&#8594;</span></button></div>
       </section>
 
       <section class="screen" data-screen="review" aria-labelledby="review-title">
         <div class="review-hero"><div class="eyebrow">Your STITCH first pack</div><h1 id="review-title">That is a better drawer.</h1><p>Five choices you actually want to wear, prepared around your fit and color direction.</p><div class="pack-reveal" id="packReveal" aria-label="Your selected pack"></div></div>
         <div class="review-card"><h3>Your five</h3><div class="selection-list" id="selectionList"></div><div class="review-grid"><div><small>Fit</small><b id="reviewFit">M · Oversized</b></div><div><small>Color</small><b id="reviewColor">Neutrals</b></div></div></div>
-        <div class="review-card"><h3>Refill rhythm</h3><div class="review-grid"><div><small>Cadence</small><b id="reviewCadence">Every 2 weeks</b></div><div><small>Checkout</small><b>Shopify</b></div></div></div>
-        <p class="checkout-note"><strong>Nothing is charged in this prototype.</strong> The live handoff will use your Shopify product and subscription plan.</p>
-        <div class="flow-actions"><button class="button ghost" type="button" data-go="build">Edit pack</button><button class="button" type="button" id="continueCheckout">Continue to Shopify <span class="arrow" aria-hidden="true">&#8594;</span></button></div>
+        <div class="review-card"><h3>Refill rhythm</h3><div class="review-grid"><div><small>Cadence</small><b id="reviewCadence">Every 2 weeks</b></div><div><small>Next step</small><b>Secure checkout</b></div></div></div>
+        <p class="checkout-note"><strong>Nothing is charged in this prototype.</strong> Product and delivery details appear before checkout.</p>
+        <div class="flow-actions"><button class="button ghost" type="button" data-go="build">Edit pack</button><button class="button" type="button" id="continueCheckout">Continue to checkout <span class="arrow" aria-hidden="true">&#8594;</span></button></div>
       </section>
 
       <section class="screen handoff" data-screen="handoff" aria-labelledby="handoff-title">
-        <div><div class="seal" aria-hidden="true">S</div><div class="eyebrow">STITCH x Shopify</div><h1 id="handoff-title">Your pack is ready.</h1><p class="copy">The next tap will move your selected pack into Shopify for checkout, confirmation, and account management.</p><button class="button" type="button" id="shopifyHandoff">Open secure checkout <span class="arrow" aria-hidden="true">&#8594;</span></button><p class="handoff-status" id="handoffStatus" aria-live="polite"></p><button class="back-link" type="button" data-go="review">Back to my pack</button></div>
+        <div><div class="seal" aria-hidden="true">S</div><div class="eyebrow">Almost there</div><h1 id="handoff-title">Your pack is ready.</h1><p class="copy">The next tap opens secure checkout. Confirmation and account management happen after that.</p><button class="button" type="button" id="checkoutHandoff">Open secure checkout <span class="arrow" aria-hidden="true">&#8594;</span></button><p class="handoff-status" id="handoffStatus" aria-live="polite"></p><button class="back-link" type="button" data-go="review">Back to my pack</button></div>
       </section>
     </main>
   </div>
 
   <script>
     /*
-      Paste the live Shopify cart or checkout URL here once the STITCH First Pack
+      Paste the live checkout URL here once the STITCH First Pack
       product, price, and biweekly selling plan are approved.
     */
-    const SHOPIFY_CHECKOUT_URL = "";
+    const CHECKOUT_URL = "";
     const MAX_SLOTS = 5;
     const state = {
       size: "M",
@@ -247,12 +247,12 @@
       });
     });
     document.getElementById("continueCheckout").addEventListener("click", () => setScreen("handoff"));
-    document.getElementById("shopifyHandoff").addEventListener("click", () => {
-      if (SHOPIFY_CHECKOUT_URL) {
-        window.location.assign(SHOPIFY_CHECKOUT_URL);
+    document.getElementById("checkoutHandoff").addEventListener("click", () => {
+      if (CHECKOUT_URL) {
+        window.location.assign(CHECKOUT_URL);
         return;
       }
-      handoffStatus.textContent = "Your flow is ready. Add the approved Shopify checkout URL when the first pack is priced and live.";
+      handoffStatus.textContent = "Your flow is ready. Add the approved checkout URL when the first pack is priced and live.";
     });
     updateBuild();
   </script>
